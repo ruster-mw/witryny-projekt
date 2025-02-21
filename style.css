@@ -9,12 +9,21 @@ body{
     margin: 0;
     background-color: var(--lightgreen);
 }
+.whitespace{
+    height: 100px;
+    width: 100%;  
+}
 .baner{
+    position: fixed;
+    top: 0;
     width: 100%;
     height: 100px;
     background-color: var(--green);
     display: flex;
     justify-content: space-between;
+    border-bottom: solid 2px rgb(97, 97, 97);
+    box-sizing: border-box;
+    z-index: 100;
 }
 p{
     margin: 0;
@@ -36,7 +45,7 @@ p{
     justify-content: space-evenly;
     align-items: center;
 }
-.nawigacja-linki a{
+.nawigacja-linki > a{
     color: white;
     text-decoration: none;
     font-size: 1.5rem;
@@ -44,7 +53,7 @@ p{
     font-weight: 100;
     position: relative;
 }
-.nawigacja-linki a::before{
+.nawigacja-linki > a::before{
     content: "";
     position: absolute;
     width: 0%;
@@ -64,9 +73,56 @@ p{
     background-color: #96cc97;
     border: none;
     border-radius: 20px;
-    font-size: 1.2rem;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.4rem;
+    font-family: "itim";
     font-weight: 500;
+    position: relative;
+}
+.menu-konto{
+    width: 300px;
+    height: 0px;
+    background-color: var(--jasnoszary);
+    border-radius: 30px;
+    position: absolute;
+    top: 35px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 100;
+    transition: height 0.4s;
+}
+.zaloguj-link{
+    justify-content: center;
+    align-items: center;
+    font-family: "itim";
+    width: 60%;
+    height: 50px;
+    background-color: #508D4E;
+    border-radius: 20px;
+    display: none;
+    text-decoration: none;
+    color: white;
+}
+.Zarejestruj-link{
+    justify-content: center;
+    align-items: center;
+    font-family: "itim";
+    width: 60%;
+    height: 50px;
+    background-color: #80AF81;
+    border-radius: 20px;
+    display: none;
+    text-decoration: none;
+    color: white;
+}
+.konto-przycisk:hover .menu-konto{
+    height: 220px;
+    border: 3px solid var(--lime);
+    .zaloguj-link,.Zarejestruj-link{
+        display: flex;
+    }
 }
 .hero-section{
     height: 550px;
@@ -82,7 +138,7 @@ p{
     flex-direction: column;
     color: #3f3f3f;
     font-size: 5.3rem;
-    line-height: 140%;
+    line-height: 130%;
     font-family: "Itim";
 }
 .obrazy{
@@ -131,7 +187,7 @@ p{
     display: flex;
     font-family: "itim";
 }
-.szukanie{
+.szukane-stanowisko{
     height: 100%;
     width: 30%;
     display: flex;
@@ -140,12 +196,13 @@ p{
     box-sizing: border-box;
     border-right: 5px solid var(--jasnoszary) ;
 }
-.szukanie-input{
+.szukanie-pracy-input{
     border: none;
     outline: none;
-    font-size: 1.7rem;
+    font-size: 1.6rem;
     font-family: "itim";
     color: black;
+    width: 290px;
 }
 .obszar-zawodowy{
     width: 20%;
@@ -155,10 +212,167 @@ p{
     align-items: center;
     justify-content: center;
     line-height: 160%;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: var(--szary);
     border-right: 5px solid var(--jasnoszary) ;
 }
-#obszarZawodowySelect{
+#obszarZawodowySelect,#wojewodztwoSelect{
     color: blueviolet;
+}
+.szukanie-przycisk-div{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.szukanie-pracy-przycisk{
+    width: 290px;
+    height: 70px;
+    background-color: #00C687;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 1.7rem;
+    font-family: "itim";
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.lupa-svg{
+    padding-left: 5px;
+}
+.pracodawcy-nagłowek{
+    width: 100%;
+    height: 310px;
+    display: flex;
+    justify-content: left;
+    align-items: flex-end;
+    box-sizing: border-box;
+    padding: 0 0 10px 20px;
+}
+.Pracodawcy-paragraf{
+    font-size: 6rem;
+    font-family: "Itim";
+}
+.sekcja-pracodawcy{
+    width: 100%;
+    height: 300px;
+    background-color: #B5ECB6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+.pracodawca{
+    width: 370px;
+    height: 225px;
+    background-color: var(--jasnoszary);
+    box-sizing: border-box;
+    padding: 10px;
+}
+.obraz-pracodawcy{
+    width: 142px;
+    height: 80px;
+}
+.pracodawcy-hr{
+    width: 80%;
+    background-color: var(--szary);
+    margin: 5px 0;
+}
+.nazwa-pracodawcy{
+    font-size: 1.9rem;
+    font-family: "Itim";
+    color: #000000;
+}
+.dowiedz-sie-wiecej{
+    margin-top:10px;
+    color: blueviolet;
+    font-family: "itim";
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+.seperator-hr{
+    margin: 35px auto;
+    background-color: #405c40;
+    width: 95%;
+    height: 4px;
+    border: none;
+}
+.oferty-pracy-main{
+    width: 85%;
+    min-height: 1000px;
+    background-color: white;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.oferty-pracy-header{
+    width: 100%;
+    height: 60px;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 3rem;
+    text-align: center;
+}
+.oferty-pracy{
+    width: 100%;
+    min-height: 850px;
+    display: grid;
+    box-sizing: border-box;
+    padding: 20px;
+    gap: 25px;
+    grid-template-columns: repeat(3,1fr); 
+    place-items: end;
+}
+.oferta-pracy{
+    width: 95%;
+    height: 200px;
+    background-color: #C3E4C1;
+    box-shadow: -12px 0px 0 0px #A4D4A1;
+    border-radius: 20px;
+    display: flex;
+    cursor: pointer;
+}
+.image-podsekcja{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.image-podsekcja img{
+    width: 120px;
+    height: 120px;
+}
+.tekst-podsekcja{
+    width: 70%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10px;
+    font-family: 'Trebuchet MS', sans-serif;
+    line-height: 150%;
+    font-size: 1.6rem;
+    color: #7c7c7c;
+}
+.stanowisko{
+    font-size: 2rem;
+    color: #000000;
+}
+.sprawdz-nowe-oferty{
+    width: 300px;
+    height: 60px;
+    margin: 10px auto 0;
+    border-radius: 12px;
+    border: none;
+    background-color: #80AF81;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.7rem;
+    font-family: "itim";
 }
