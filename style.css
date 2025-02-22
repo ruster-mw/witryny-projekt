@@ -8,16 +8,24 @@
 body{
     margin: 0;
     background-color: var(--lightgreen);
+    position: relative;
+}
+body,html{
+    overflow-x:hidden ;
 }
 .whitespace{
-    height: 100px;
+    height: 110px;
     width: 100%;  
 }
+p{
+    margin: 0;
+}
+/* nawigacja */
 .baner{
     position: fixed;
     top: 0;
     width: 100%;
-    height: 100px;
+    height: 110px;
     background-color: var(--green);
     display: flex;
     justify-content: space-between;
@@ -25,13 +33,10 @@ body{
     box-sizing: border-box;
     z-index: 100;
 }
-p{
-    margin: 0;
-}
 .nazwa-strony{
-    width: 25%;
+    flex: 6 3 250px;
     height: 100%;
-    font-size: 4.7rem;
+    font-size: clamp(3.2rem,4.8vw,5.2rem);
     color: white;
     font-family: "Itim";
     display: flex;
@@ -39,7 +44,7 @@ p{
     align-items: center;
 }
 .nawigacja-linki{
-    width: 60%;
+    flex: 10 4 500px;
     height: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -48,18 +53,19 @@ p{
 .nawigacja-linki > a{
     color: white;
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: clamp(1.3rem,2.4vw,2.1rem);
     font-family: "lalezar";
     font-weight: 100;
     position: relative;
+    box-sizing: border-box;
 }
 .nawigacja-linki > a::before{
     content: "";
     position: absolute;
     width: 0%;
-    height: 3px;
+    height: 4px;
     background-color: white;
-    bottom: 4px;
+    bottom: 7px;
     left: 50%;
     transform: translateX(-50%);
     transition: width 0.7s;
@@ -68,12 +74,12 @@ p{
     width: 100%;
 }
 .konto-przycisk{
-    width: 155px;
-    height: 30px;
+    width: 175px;
+    height: 40px;
     background-color: #96cc97;
     border: none;
     border-radius: 20px;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-family: "itim";
     font-weight: 500;
     position: relative;
@@ -84,7 +90,7 @@ p{
     background-color: var(--jasnoszary);
     border-radius: 30px;
     position: absolute;
-    top: 35px;
+    top: 45px;
     right: 0;
     display: flex;
     flex-direction: column;
@@ -93,17 +99,84 @@ p{
     z-index: 100;
     transition: height 0.4s;
 }
+.hamburger-przycisk{
+    width: 50px;
+    height: 50px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: var(--lime);
+    border: none;
+}
+.hamburger-svg-x{
+    display: none;
+}
+.mobilne-menu{
+    position: absolute;
+    width: 300px;
+    height: 400px;
+    background-color: rgb(46, 133, 46);
+    color: white;
+    font-family: "itim";
+    top: 83px;
+    right: 0;
+    transform: translateX(100%);
+    z-index: 101;
+    border-radius: 30px 0 0 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    box-sizing: border-box;
+    padding: 10px;
+    transition: transform 0.4s;
+}
+.menu-pokaz{
+    transform: translateX(0%);
+}
+.mobilne-menu a{
+    color: white;
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-family: "itim";
+    font-weight: 500;
+    box-sizing: border-box;
+    padding-left: 10px;
+}
+.mobilne-menu hr{
+    width: 95%;
+    border: 1px solid white;
+    background-color: white;
+    height: 1px;
+}
+@media (max-width: 850px){
+    .baner{
+        justify-content: center;
+    }
+    .nawigacja-linki > a, .nawigacja-linki > .konto-przycisk{
+        display: none;
+    }
+    .nawigacja-linki{
+        justify-content: right;
+        padding-right: 15px;
+    }
+    .hamburger-przycisk{
+        display: flex;
+    }
+}
+/* hero section */
 .zaloguj-link{
     justify-content: center;
     align-items: center;
     font-family: "itim";
     width: 60%;
-    height: 50px;
+    height: 42px;
     background-color: #508D4E;
-    border-radius: 20px;
+    border-radius: 40px;
     display: none;
     text-decoration: none;
     color: white;
+    position: relative;
 }
 .Zarejestruj-link{
     justify-content: center;
@@ -112,15 +185,21 @@ p{
     width: 60%;
     height: 50px;
     background-color: #80AF81;
-    border-radius: 20px;
+    border-radius: 40px;
     display: none;
     text-decoration: none;
     color: white;
 }
+.zaloguj-tekst{
+    display: none;
+    font-size: 1.33rem;
+    font-family: "itim";
+    font-weight: 100;
+}
 .konto-przycisk:hover .menu-konto{
-    height: 220px;
+    height: 240px;
     border: 3px solid var(--lime);
-    .zaloguj-link,.Zarejestruj-link{
+    .zaloguj-link,.Zarejestruj-link,.zaloguj-tekst{
         display: flex;
     }
 }
@@ -137,7 +216,7 @@ p{
     align-items: center;
     flex-direction: column;
     color: #3f3f3f;
-    font-size: 5.3rem;
+    font-size: clamp(3.8rem,5vw,5.6rem);
     line-height: 130%;
     font-family: "Itim";
 }
@@ -150,21 +229,23 @@ p{
 .obraz1{
     position: absolute;
     top: 50px;
-    left: 70px;
+    left: 50px;
     width: 340px;
     height: 200px;
 }
 .obraz2{
     position: absolute;
     top: 290px;
-    left: 60px;
-    width: 330px;
-    height: 180px;
+    left: 40px;
+    width: 350px;
+    height: 220px;
 }
 .obraz3{
     position: absolute;
     top: 130px;
     left: 430px;
+    width: 330px;
+    height: 180px;
 }
 .circle{
     width: 75%;
@@ -243,6 +324,7 @@ p{
 .lupa-svg{
     padding-left: 5px;
 }
+/* pracodawcy nagłówek */
 .pracodawcy-nagłowek{
     width: 100%;
     height: 310px;
@@ -300,6 +382,7 @@ p{
     height: 4px;
     border: none;
 }
+/* oferty pracy */
 .oferty-pracy-main{
     width: 85%;
     min-height: 1000px;

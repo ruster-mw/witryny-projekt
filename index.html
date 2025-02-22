@@ -13,9 +13,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Itim&family=Lalezar&display=swap" rel="stylesheet">
 </head>
 <body>
-    <section class="whitespace">
-    
-    </section>
+    <div class="mobilne-menu">
+        <a href="">Wspołpracodawcy</a>
+        <hr>
+        <a href="">Oferty pracy</a>
+        <hr>
+        <a href="">kontakt</a>
+        <hr>
+        <a href="">Zaloguj się</a>
+        <hr>
+        <a href="">Zarejestruj się</a>
+    </div>
+    <section class="whitespace"></section>
     <section class="baner">
         <header class="nazwa-strony">Małpa<p style="color: #00C687">.</p>pl</header>
         <nav class="nawigacja-linki">
@@ -24,9 +33,22 @@
             <a href="">kontakt</a>
             <button class="konto-przycisk">Moje konto ▼
                 <div class="menu-konto">
+                    <p class="zaloguj-tekst">Zaloguj się i zdobądź dostęp do wszystkich funkcji</p>
                     <a href="" class="zaloguj-link">Zaloguj się</a>
+                    <p class="zaloguj-tekst">Nie posiadzasz konta?</p>
                     <a href="" class="Zarejestruj-link">Zarejestruj się</a>
                 </div>
+            </button>
+            <button class="hamburger-przycisk" onclick="pokazMenu()">
+                <svg width="50" height="50" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="hamburger-svg-linia">
+                    <line x1="10" y1="20" x2="90" y2="20" stroke="white" stroke-width="13"/>
+                    <line x1="10" y1="50" x2="90" y2="50" stroke="white" stroke-width="13"/>
+                    <line x1="10" y1="80" x2="90" y2="80" stroke="white" stroke-width="13"/>
+                </svg>
+                <svg width="50" height="50" viewbox = "0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="hamburger-svg-x">
+                    <line x1="10" y1="10" x2="90" y2="90" stroke="white" stroke-width="14"/>
+                    <line x1="10" y1="90" x2="90" y2="10" stroke="white" stroke-width="14"/>
+                </svg>
             </button>
         </nav>
     </section>
@@ -43,7 +65,7 @@
             <img src="praca3.png" alt="osoba pracujaca w barze" class="obraz3">
         </section>
     </section>
-    <section class="pasek-wyszukiwania">
+    <!-- <section class="pasek-wyszukiwania">
         <div class="szukane-stanowisko">
             <form action="">
                 <input type="text" class="szukanie-pracy-input" placeholder="Wpisz szukane stanowisko"></input>
@@ -177,7 +199,7 @@
            <button class="sprawdz-nowe-oferty">Sprawdź nowe oferty</button>
        </main>
 
-    <hr class="seperator-hr">
+    <hr class="seperator-hr"> -->
 
 
 
